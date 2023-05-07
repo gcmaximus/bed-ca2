@@ -1,2 +1,2 @@
 # bed-ca2
-SP Air Website developed for Back End Development module in SP
+SP Air, a fictional airlines company, website developed for Back End Development module in SP
