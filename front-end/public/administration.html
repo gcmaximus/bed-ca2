@@ -1,0 +1,204 @@
+<html lang="en">
+
+<head>
+    <!-- 
+//Name: Jerald Yeo
+//Class: DISM 2A03
+//Admin No: 2128496 -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./js/administration.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="./image/sp-air.png" alt="SP Air logo" id="sp-air-logo"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link px-3" href="./home.html">Home</a>
+                        <a class="nav-link px-3" href="./profile.html">Profile</a>
+                        <a class="nav-link px-3" href="./bookings.html">My Bookings</a>
+                        <a class="nav-link px-3 active" aria-current="page"
+                            href="./administration.html">Administration</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <nav class="nav nav-tabs bg-light admin-tab" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-airports-tab" data-bs-toggle="tab" data-bs-target="#nav-airports"
+            type="button" role="tab" aria-controls="nav-airports" aria-selected="true">Airports</button>
+        <button class="nav-link" id="nav-flights-tab" data-bs-toggle="tab" data-bs-target="#nav-flights" type="button"
+            role="tab" aria-controls="nav-flights" aria-selected="false">Flights</button>
+        <button class="nav-link" id="nav-add-tab" data-bs-toggle="tab" data-bs-target="#nav-add" type="button"
+            role="tab" aria-controls="nav-add" aria-selected="false">Add Airports &
+            Flights</button>
+    </nav>
+
+
+    <div class="add-content">
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active grid-container" id="nav-airports" role="tabpanel"
+                aria-labelledby="nav-airports-tab">
+                <div id="airports">
+
+                </div>
+            </div>
+            <div class="tab-pane fade grid-container" id="nav-flights" role="tabpanel"
+                aria-labelledby="nav-flights-tab">
+                <div id="flights">
+
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-add" role="tabpanel" aria-labelledby="nav-add-tab">
+                <div id="add">
+                    <div class="row">
+                        <!-- Form for adding Airport-->
+                        <div class="col-auto">
+                            <form action="" id="add-airport" class="add-form form-box">
+                                <h4>Add Airport</h4>
+                                <div class="row">
+                                    <div class="name form-margin col-auto">
+                                        <label for="input-name" class="form-label">Name</label>
+                                        <input type="text" class="form-control" id="input-name"
+                                            placeholder="e.g: Changi Airport">
+                                    </div>
+
+                                    <div class="country form-margin col-auto">
+                                        <label for="input-country" class="form-label">Country</label>
+                                        <input type="text" class="form-control" id="input-country"
+                                            placeholder="e.g: Singapore">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="description form-margin">
+                                        <label for="input-desc" class="form-label">Description</label>
+                                        <textarea type="text" class="form-control" id="input-desc" rows="5"
+                                            placeholder="e.g: Main International Airport of Singapore"></textarea>
+                                    </div>
+                                </div>
+                                <br><br>
+                                <button type="button" id="addAirport" class="customButton">Submit</button>
+                                <p id="msg1"></p>
+                            </form>
+                        </div>
+
+
+                        <!-- Form for adding Flight-->
+                        <div class="col-7">
+                            <form action="" id="add-flight" class="add-form form-box">
+                                <h4>Add Flight</h4>
+                                <div class="row">
+                                    <div class="flightCode form-margin col-4">
+                                        <label for="input-flightCode" class="form-label">Flight Code</label>
+                                        <input type="text" class="form-control" id="input-flightCode"
+                                            placeholder="e.g: SP390">
+                                    </div>
+
+                                    <div class="aircraft form-margin col-5">
+                                        <label for="input-aircraft" class="form-label">Aircraft</label>
+                                        <input type="text" class="form-control" id="input-aircraft"
+                                            placeholder="e.g: BOEING 737">
+                                    </div>
+
+                                    <div class="price form-margin col-3">
+                                        <label for="input-price" class="form-label">Price</label>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-text">$</span>
+                                            <input type="text" class="form-control" id="input-price"
+                                                placeholder="e.g: 500.90">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="originAirport form-margin col-6">
+                                        <label for="input-originAirport" class="form-label">Original Airport</label>
+                                        <select class="form-select" id="input-originAirport">
+                                            <!-- airports listing here -->
+                                        </select>
+                                    </div>
+
+                                    <div class="destinationAirport form-margin col-6">
+                                        <label for="input-destinationAirport" class="form-label">Destination
+                                            Airport</label>
+                                        <select class="form-select" id="input-destinationAirport">
+                                            <!-- airports listing here -->
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="embarkDate form-margin col-3">
+                                        <label for="input-embarkDate" class="form-label">Embark Date</label>
+                                        <br>
+                                        <input type="date" id="input-embarkDate" class="datetime">
+                                    </div>
+
+                                    <div class="embarkTime form-margin col-3">
+                                        <label for="input-embarkTime" class="form-label">Embark Time</label>
+                                        <br>
+                                        <input type="time" id="input-embarkTime" class="datetime" value="12:00">
+                                    </div>
+
+                                    <div class="travelTime form-margin col-6">
+                                        <label for="input-travelTime" class="form-label">Travel Time <span class="na">(Leave blank for N.A inputs)</span></label>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" id="input-travelTime-days"
+                                                placeholder="">
+                                            <span class="input-group-text">days</span>
+
+                                            <input type="text" class="form-control" id="input-travelTime-hours"
+                                                placeholder="">
+                                            <span class="input-group-text">hours</span>
+                                            <input type="text" class="form-control" id="input-travelTime-mins"
+                                                placeholder="">
+                                            <span class="input-group-text">mins</span>
+                                        </div>
+                                        
+
+                                    </div>
+
+                                </div>
+                                <br>
+                                <button type="button" id="addFlight" class="customButton">Submit</button>
+                                <p id="msg2"></p>
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Copyright &copy; 2022 SP Air</p>
+        <p class="slogan">With SP Air, it's So Possible</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
