@@ -8,7 +8,7 @@ const dbconnect = {
             host: 'localhost',
             port: 3306,
             user: 'root',
-            password: 'woodgrove',
+            password: '**********',
             database: 'sp_air',
             dateStrings: true
         });
